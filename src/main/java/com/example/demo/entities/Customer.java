@@ -1,6 +1,7 @@
 package com.example.demo.entities;
 
 import java.util.Date;
+import java.util.Set;
 
 public class Customer {
 
@@ -21,6 +22,8 @@ public class Customer {
     private Date lastUpdate;
 
     private Long division;
+
+    private Set<Cart> carts;
 
     public Customer() {
 
