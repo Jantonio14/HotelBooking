@@ -21,6 +21,13 @@ public class CartItem {
     @JoinColumn(name = "Vacation_ID")
     private Vacation vacation;
 
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE,
+            CascadeType.DETACH, CascadeType.REFRESH})
+    @JoinTable(
+            name = "excursion_cartitem",
+            joinColumns = @JoinColumn(name = "Excursion_ID"),
+            inverseJoinColumns = @JoinColumn(name = "Cart_Item")
+    )
     private Set<Excursion> excursions;
 
     @ManyToOne
