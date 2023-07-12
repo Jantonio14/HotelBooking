@@ -8,37 +8,37 @@ import org.hibernate.annotations.UpdateTimestamp;
 import java.util.Date;
 import java.util.Set;
 @Entity
-@Table(name = "CART_ITEMS")
+@Table(name = "cart_items")
 @Data
 public class CartItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Cart_Item_ID")
+    @Column(name = "cart_item_id")
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "Vacation_ID")
+    @JoinColumn(name = "vacation_id")
     private Vacation vacation;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE,
             CascadeType.DETACH, CascadeType.REFRESH})
     @JoinTable(
             name = "excursion_cartitem",
-            joinColumns = @JoinColumn(name = "Excursion_ID"),
-            inverseJoinColumns = @JoinColumn(name = "Cart_Item")
+            joinColumns = @JoinColumn(name = "excursion_id"),
+            inverseJoinColumns = @JoinColumn(name = "cart_item")
     )
     private Set<Excursion> excursions;
 
     @ManyToOne
-    @JoinColumn(name = "Cart_ID", nullable = false)
+    @JoinColumn(name = "cart_id", nullable = false)
     private Cart cart;
 
-    @Column(name = "Create_Date")
+    @Column(name = "create_date")
     @CreationTimestamp
     private Date createDate;
 
-    @Column(name = "Last_Update")
+    @Column(name = "last_update")
     @UpdateTimestamp
     private Date lastUpdate;
 

@@ -11,37 +11,37 @@ import java.util.Date;
 import java.util.Set;
 
 @Entity
-@Table(name = "CARTS")
+@Table(name = "carts")
 @Data
 public class Cart {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Cart_ID")
+    @Column(name = "cart_id")
     private Long id;
 
-    @Column(name = "Order_Tracking_Number")
+    @Column(name = "order_tracking_number")
     private String orderTrackingNumber;
 
-    @Column(name = "Package_Price")
+    @Column(name = "package_price")
     private BigDecimal packagePrice;
 
-    @Column(name = "Party_Size")
+    @Column(name = "party_size")
     private int partySize;
 
-    @Column(name = "Status")
+    @Column(name = "status")
     private StatusType status;
 
     @CreationTimestamp
-    @Column(name = "Create_Date")
+    @Column(name = "create_date")
     private Date createDate;
 
     @UpdateTimestamp
-    @Column(name = "Last_Update")
+    @Column(name = "last_update")
     private Date lastUpdate;
 
     @ManyToOne
-    @JoinColumn(name = "Customer_ID", nullable = false)
+    @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
     private Set<CartItem> cartItem;
