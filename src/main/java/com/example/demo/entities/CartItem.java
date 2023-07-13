@@ -25,8 +25,8 @@ public class CartItem {
             CascadeType.DETACH, CascadeType.REFRESH})
     @JoinTable(
             name = "excursion_cartitem",
-            joinColumns = @JoinColumn(name = "excursion_id"),
-            inverseJoinColumns = @JoinColumn(name = "cart_item")
+            joinColumns = @JoinColumn(name = "cart_item"),
+            inverseJoinColumns = @JoinColumn(name = "excursion_id")
     )
     private Set<Excursion> excursions;
 

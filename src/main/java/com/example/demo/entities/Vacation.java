@@ -39,6 +39,8 @@ public class Vacation {
     @Column(name = "last_update")
     private Date lastUpdate;
 
+    @OneToMany
+    @JoinColumn(name = "vacation_id")
     private Set<Excursion> excursions;
 
     public Vacation() {

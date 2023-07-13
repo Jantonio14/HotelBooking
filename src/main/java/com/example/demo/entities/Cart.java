@@ -44,6 +44,8 @@ public class Cart {
     @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
+    @OneToMany
+    @JoinColumn(name = "cart_id")
     private Set<CartItem> cartItem;
 
     public Cart() {

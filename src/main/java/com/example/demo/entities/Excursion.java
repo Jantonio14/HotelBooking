@@ -36,8 +36,17 @@ public class Excursion {
     @Column(name = "last_update")
     private Date lastUpdate;
 
+    @ManyToOne
+    @JoinColumn(name = "vacation_id")
     private Vacation vacation;
 
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE,
+            CascadeType.DETACH, CascadeType.REFRESH})
+    @JoinTable(
+            name = "excursion_cartitem",
+            joinColumns = @JoinColumn(name = "excursion_id"),
+            inverseJoinColumns = @JoinColumn(name = "cart_item")
+    )
     private Set<CartItem> cartItems;
 
     public Excursion() {

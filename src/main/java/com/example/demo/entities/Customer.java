@@ -44,6 +44,8 @@ public class Customer {
     @Column(name = "division")
     private Long division;
 
+    @OneToMany
+    @JoinColumn(name = "customer_id")
     private Set<Cart> carts;
 
     public Customer() {
