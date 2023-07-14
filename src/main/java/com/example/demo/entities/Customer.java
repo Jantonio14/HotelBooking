@@ -54,7 +54,8 @@ public class Customer {
 
     }
 
-    public Customer(Long id, String firstName, String lastName, String address, String postalCode, String phone, Date createDate, Date lastUpdate, Long division) {
+    public Customer(Long id, String firstName, String lastName, String address,
+                    String postalCode, String phone, Date createDate, Date lastUpdate, Long division) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
