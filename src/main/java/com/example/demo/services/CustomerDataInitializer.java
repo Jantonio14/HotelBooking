@@ -12,10 +12,13 @@ import java.util.Date;
 
 @Component
 @Data
-
 public class CustomerDataInitializer implements CommandLineRunner {
 
     private CustomerRepository customerRepository;
+
+    public CustomerDataInitializer(CustomerRepository customerRepository) {
+        this.customerRepository = customerRepository;
+    }
 
 
 

@@ -33,6 +33,7 @@ public class Division {
     @JoinColumn(name = "country_id")
     private Country country;
 
+    @Column(name = "country_id", insertable=false, updatable=false)
     private Long countryId;
 
     @OneToMany

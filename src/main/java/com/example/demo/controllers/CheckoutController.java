@@ -3,6 +3,7 @@ package com.example.demo.controllers;
 import com.example.demo.services.CheckoutService;
 import com.example.demo.services.PurchaseData;
 import com.example.demo.services.PurchaseResponseData;
+import jakarta.persistence.Entity;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
