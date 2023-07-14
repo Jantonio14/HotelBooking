@@ -1,7 +1,7 @@
 package com.example.demo.entities;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -11,6 +11,8 @@ import java.util.Set;
 @Entity
 @Table(name = "customer")
 @Data
+@Getter
+@Setter
 public class Customer {
 
     @Id
@@ -52,5 +54,15 @@ public class Customer {
 
     }
 
-
+    public Customer(Long id, String firstName, String lastName, String address, String postalCode, String phone, Date createDate, Date lastUpdate, Long division) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.postalCode = postalCode;
+        this.phone = phone;
+        this.createDate = createDate;
+        this.lastUpdate = lastUpdate;
+        this.division = division;
+    }
 }
