@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.Set;
 
 @Entity
-@Table(name = "division")
+@Table(name = "divisions")
 @Data
 public class Division {
 
@@ -18,7 +18,7 @@ public class Division {
     @Column(name = "division_id")
     private Long id;
 
-    @Column(name = "division_name")
+    @Column(name = "division")
     private String divisionName;
 
     @CreationTimestamp

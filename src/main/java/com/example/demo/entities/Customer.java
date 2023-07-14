@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.Set;
 
 @Entity
-@Table(name = "customer")
+@Table(name = "customers")
 @Data
 @Getter
 @Setter
@@ -20,10 +20,10 @@ public class Customer {
     @Column(name = "customer_id")
     private Long id;
 
-    @Column(name = "first_name")
+    @Column(name = "customer_first_name")
     private String firstName;
 
-    @Column(name = "last_name")
+    @Column(name = "customer_last_name")
     private String lastName;
 
     @Column(name = "address")
@@ -35,7 +35,7 @@ public class Customer {
     @Column(name = "phone")
     private String phone;
 
-    @Column(name = "create_data")
+    @Column(name = "create_date")
     @CreationTimestamp
     private Date createDate;
 
@@ -43,7 +43,7 @@ public class Customer {
     @UpdateTimestamp
     private Date lastUpdate;
 
-    @Column(name = "division")
+    @Column(name = "division_id")
     private Long division;
 
     @OneToMany
@@ -55,15 +55,13 @@ public class Customer {
     }
 
     public Customer(Long id, String firstName, String lastName, String address,
-                    String postalCode, String phone, Date createDate, Date lastUpdate, Long division) {
+                    String postalCode, String phone, Long division) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
         this.postalCode = postalCode;
         this.phone = phone;
-        this.createDate = createDate;
-        this.lastUpdate = lastUpdate;
         this.division = division;
     }
 }

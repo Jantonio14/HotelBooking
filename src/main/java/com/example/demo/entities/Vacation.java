@@ -10,7 +10,7 @@ import java.util.Date;
 import java.util.Set;
 
 @Entity
-@Table(name = "vacation")
+@Table(name = "vacations")
 @Data
 public class Vacation {
 
