@@ -7,6 +7,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -39,11 +40,22 @@ public class Vacation {
     @Column(name = "last_update")
     private Date lastUpdate;
 
-    @OneToMany
-    @JoinColumn(name = "vacation_id")
-    private Set<Excursion> excursions;
-
     public Vacation() {
 
+    }
+    @OneToMany
+    @JoinColumn(name = "vacation_id")
+    private Set<Excursion> excursions = new HashSet<>();
+
+    public void add(Excursion excursion) {
+
+        if (excursion != null) {
+            if (excursions == null) {
+                excursions = new HashSet<>();
+            }
+
+            excursions.add(excursion);
+            excursion.setVacation(this);
+        }
     }
 }
