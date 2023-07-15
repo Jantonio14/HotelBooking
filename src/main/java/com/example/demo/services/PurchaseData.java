@@ -12,7 +12,6 @@ import org.springframework.validation.annotation.Validated;
 
 import java.util.Set;
 @Data
-@NoArgsConstructor
 @Getter
 @Setter
 @Validated

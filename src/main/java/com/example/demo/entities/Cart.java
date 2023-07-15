@@ -8,6 +8,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -44,9 +45,21 @@ public class Cart {
     @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "cart_id")
-    private Set<CartItem> cartItem;
+    private Set<CartItem> cartItems = new HashSet<>();
+
+    public void add(CartItem cartItem) {
+
+        if (cartItem != null) {
+            if (cartItems == null) {
+                cartItems = new HashSet<>();
+            }
+
+            cartItems.add(cartItem);
+            cartItem.setCart(this);
+        }
+    }
 
     public Cart() {
 

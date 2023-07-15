@@ -3,13 +3,9 @@ package com.example.demo.services;
 import lombok.*;
 
 @Data
-@Getter
-@Setter
 public class PurchaseResponseData {
 
-    private String orderTrackingNumber;
+    private final String orderTrackingNumber;
 
-    public PurchaseResponseData() {
 
-    }
 }

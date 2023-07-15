@@ -3,6 +3,7 @@ package com.example.demo.entities;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.util.Date;
@@ -29,11 +30,11 @@ public class Division {
     @Column(name = "lastUpdate")
     private Date lastUpdate;
 
-    @ManyToOne
-    @JoinColumn(name = "country_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "country_id", nullable = false, insertable=false, updatable=false)
     private Country country;
 
-    @Column(name = "country_id", insertable=false, updatable=false)
+    @Column(name = "country_id")
     private Long countryId;
 
     @OneToMany
