@@ -20,15 +20,15 @@ public class Division {
     private Long id;
 
     @Column(name = "division")
-    private String divisionName;
+    private String division_name;
 
     @CreationTimestamp
     @Column(name = "create_date")
-    private Date createDate;
+    private Date create_date;
 
     @UpdateTimestamp
     @Column(name = "lastUpdate")
-    private Date lastUpdate;
+    private Date last_update;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "country_id", nullable = false, insertable=false, updatable=false)

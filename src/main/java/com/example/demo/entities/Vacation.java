@@ -21,16 +21,16 @@ public class Vacation {
     private Long id;
 
     @Column(name = "vacation_title")
-    private String vacationTitle;
+    private String vacation_title;
 
     @Column(name = "description")
     private String description;
 
     @Column(name = "travel_fare_price")
-    private BigDecimal travelPrice;
+    private BigDecimal travel_price;
 
     @Column(name = "image_url")
-    private String imageUrl;
+    private String image_URL;
 
     @CreationTimestamp
     @Column(name = "create_date")
@@ -47,15 +47,15 @@ public class Vacation {
     @JoinColumn(name = "vacation_id")
     private Set<Excursion> excursions = new HashSet<>();
 
-    public void add(Excursion excursion) {
-
-        if (excursion != null) {
-            if (excursions == null) {
-                excursions = new HashSet<>();
-            }
-
-            excursions.add(excursion);
-            excursion.setVacation(this);
-        }
-    }
+//    public void add(Excursion excursion) {
+//
+//        if (excursion != null) {
+//            if (excursions == null) {
+//                excursions = new HashSet<>();
+//            }
+//
+//            excursions.add(excursion);
+//            excursion.setVacation(this);
+//        }
+//    }
 }

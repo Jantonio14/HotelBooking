@@ -20,15 +20,15 @@ public class Country {
     private Long id;
 
     @Column(name = "country_name")
-    private String countryName;
+    private String country_name;
 
     @CreationTimestamp
     @Column(name = "create_dance")
-    private Date createDate;
+    private Date create_date;
 
     @UpdateTimestamp
     @Column(name = "last_update")
-    private Date lastUpdate;
+    private Date last_update;
 
     @OneToMany
     @JoinColumn(name = "country_id")

@@ -4,6 +4,7 @@ import com.example.demo.dao.CustomerRepository;
 import com.example.demo.entities.Cart;
 import com.example.demo.entities.CartItem;
 import com.example.demo.entities.Customer;
+import com.example.demo.entities.StatusType;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
@@ -33,14 +34,15 @@ public class CheckoutServiceImpl implements CheckoutService{
         String orderTrackingNumber = generateOrderTrackingNumber();
 
         cart.setOrderTrackingNumber(orderTrackingNumber);
-
+        cart.setStatus(StatusType.ordered);
         Set<CartItem> cartItems = purchaseData.getCartItems();
         cartItems.forEach(cartItem -> cart.add(cartItem));
 
-        Customer customer = purchaseData.getCustomerCart().getCustomer();
-        customer.add(cart);
+        //Customer customer = purchaseData.getCustomerCart().getCustomer();
+        //customer.add(cart);
 
-        customerRepository.save(customer);
+        //customerRepository.save(customer);
+        // save cartRepository
 
         return new PurchaseResponseData(orderTrackingNumber);
     }
