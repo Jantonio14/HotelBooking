@@ -25,21 +25,21 @@ public class Cart {
     private String orderTrackingNumber;
 
     @Column(name = "package_price")
-    private BigDecimal packagePrice;
+    private BigDecimal package_price;
 
     @Column(name = "party_size")
-    private int partySize;
+    private int party_size;
 
     @Column(name = "status")
     private StatusType status;
 
     @CreationTimestamp
     @Column(name = "create_date")
-    private Date createDate;
+    private Date create_date;
 
     @UpdateTimestamp
     @Column(name = "last_update")
-    private Date lastUpdate;
+    private Date last_update;
 
     @ManyToOne
     @JoinColumn(name = "customer_id", nullable = false)
@@ -47,17 +47,17 @@ public class Cart {
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "cart_id")
-    private Set<CartItem> cartItems = new HashSet<>();
+    private Set<CartItem> cartItem = new HashSet<>();
 
-    public void add(CartItem cartItem) {
+    public void add(CartItem item) {
 
         if (cartItem != null) {
-            if (cartItems == null) {
-                cartItems = new HashSet<>();
+            if (cartItem == null) {
+                cartItem = new HashSet<>();
             }
 
-            cartItems.add(cartItem);
-            cartItem.setCart(this);
+            cartItem.add(item);
+            item.setCart(this);
         }
     }
 
