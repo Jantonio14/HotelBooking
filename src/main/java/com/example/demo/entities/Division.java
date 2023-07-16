@@ -34,8 +34,8 @@ public class Division {
     @JoinColumn(name = "country_id", nullable = false, insertable=false, updatable=false)
     private Country country;
 
-    @Column(name = "country_id")
-    private Long countryId;
+//    @Column(name = "country_id")
+//    private Long countryId;
 
     @OneToMany
     @JoinColumn(name = "division_id")

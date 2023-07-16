@@ -3,14 +3,10 @@ package com.example.demo.controllers;
 import com.example.demo.services.CheckoutService;
 import com.example.demo.services.PurchaseData;
 import com.example.demo.services.PurchaseResponseData;
-import jakarta.persistence.Entity;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin("http://localhost:3306")
+@CrossOrigin
 @RestController
 @RequestMapping("/api/checkout")
 public class CheckoutController {
