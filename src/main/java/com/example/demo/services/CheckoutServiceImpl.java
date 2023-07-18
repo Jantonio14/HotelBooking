@@ -22,8 +22,8 @@ public class CheckoutServiceImpl implements CheckoutService{
 
     private CartRepository cartRepository;
 
-    public CheckoutServiceImpl(CustomerRepository customerRepository) {
-        this.customerRepository = customerRepository;
+    public CheckoutServiceImpl(CartRepository cartRepository) {
+        this.cartRepository = cartRepository;
     }
 
     @Override
@@ -33,7 +33,7 @@ public class CheckoutServiceImpl implements CheckoutService{
         if (!purchaseData.isValid()) {
             throw new IllegalArgumentException("Invalid purchase data");
         }
-        Cart cart = purchaseData.getCustomerCart();
+        Cart cart = purchaseData.getCart();
         String orderTrackingNumber = generateOrderTrackingNumber();
 
         cart.setOrderTrackingNumber(orderTrackingNumber);

@@ -11,7 +11,7 @@ import java.util.Date;
 import java.util.Set;
 @Entity
 @Table(name = "cart_items")
-@Data
+
 @Getter
 @Setter
 public class CartItem {
@@ -25,7 +25,7 @@ public class CartItem {
     @JoinColumn(name = "vacation_id")
     private Vacation vacation;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    @ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(
             name = "excursion_cartitem",
             joinColumns = @JoinColumn(name = "excursion_id"),

@@ -12,16 +12,13 @@ import org.springframework.validation.annotation.Validated;
 
 import java.util.Set;
 @Data
-@Getter
-@Setter
-@Validated
 public class PurchaseData {
 
 
-    private Cart customerCart;
+    private Cart cart;
     private Set<CartItem> cartItems;
 
     public boolean isValid() {
-        return customerCart != null && cartItems!= null && !cartItems.isEmpty();
+        return cart != null && cartItems!= null && !cartItems.isEmpty();
     }
 }

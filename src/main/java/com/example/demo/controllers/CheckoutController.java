@@ -19,9 +19,9 @@ public class CheckoutController {
 
     @PostMapping("/purchase")
 
-    public ResponseEntity<PurchaseResponseData> placeOrder(@RequestBody PurchaseData purchaseData) {
+    public PurchaseResponseData placeOrder(@RequestBody PurchaseData purchaseData) {
         PurchaseResponseData purchaseResponseData = checkoutService.checkout(purchaseData);
-        return ResponseEntity.ok(purchaseResponseData);
+        return purchaseResponseData;
     }
 }
 

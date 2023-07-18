@@ -13,7 +13,6 @@ import java.util.Set;
 
 @Entity
 @Table(name = "excursions")
-@Data
 @Getter
 @Setter
 public class Excursion {
@@ -44,12 +43,7 @@ public class Excursion {
     @JoinColumn(name = "vacation_id", nullable = false)
     private Vacation vacation;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
-    @JoinTable(
-            name = "excursion_cartitem",
-            joinColumns = @JoinColumn(name = "cart_item_id"),
-            inverseJoinColumns = @JoinColumn(name = "excursion_id")
-    )
+    @ManyToMany(cascade = {CascadeType.ALL}, mappedBy = "excursions")
     private Set<CartItem> cartItems;
 
     public Excursion() {

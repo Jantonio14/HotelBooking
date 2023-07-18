@@ -14,7 +14,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "vacations")
-@Data
+
 @Getter
 @Setter
 public class Vacation {
@@ -50,7 +50,9 @@ public class Vacation {
     @OneToMany
     @JoinColumn(name = "vacation_id")
     private Set<Excursion> excursions = new HashSet<>();
-
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "vacation_id")
+    private Set<CartItem> cartItems = new HashSet<>();
 //    public void add(Excursion excursion) {
 //
 //        if (excursion != null) {

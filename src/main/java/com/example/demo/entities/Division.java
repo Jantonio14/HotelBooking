@@ -13,7 +13,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "divisions")
-@Data
+
 @Getter
 @Setter
 public class Division {
