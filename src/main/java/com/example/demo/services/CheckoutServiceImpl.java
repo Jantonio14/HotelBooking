@@ -29,9 +29,9 @@ public class CheckoutServiceImpl implements CheckoutService{
     @Transactional
     public PurchaseResponse checkout(Purchase purchase) {
 
-//        if (!purchase.isValid()) {
-//            throw new IllegalArgumentException("Invalid purchase data");
-//        }
+        if (!purchase.isValid()) {
+            throw new IllegalArgumentException("Invalid purchase data");
+        }
         Cart cart = purchase.getCart();
         cart.setStatus(StatusType.ordered);
         String orderTrackingNumber = generateOrderTrackingNumber();

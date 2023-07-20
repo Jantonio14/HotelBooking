@@ -25,13 +25,13 @@ public class CartItem {
     @JoinColumn(name = "vacation_id", nullable = false)
     private Vacation vacation;
 
-    @ManyToMany(cascade = {CascadeType.ALL})
+    @ManyToMany
     @JoinTable(
             name = "excursion_cartitem",
             joinColumns = @JoinColumn(name = "cart_item_id"),
             inverseJoinColumns = @JoinColumn(name = "excursion_id")
     )
-    private Set<Excursion> excursions;
+    Set<Excursion> excursions;
 
     @ManyToOne
     @JoinColumn(name = "cart_id", nullable = false)

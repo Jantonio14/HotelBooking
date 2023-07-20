@@ -13,7 +13,7 @@ public class Purchase {
     private Cart cart;
     private Set<CartItem> cartItems;
 
-//    public boolean isValid() {
-//        return cart != null && cartItems!= null && !cartItems.isEmpty();
-//    }
+    public boolean isValid() {
+        return cart != null && cartItems!= null && !cartItems.isEmpty();
+    }
 }
