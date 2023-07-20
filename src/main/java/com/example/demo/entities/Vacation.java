@@ -47,12 +47,13 @@ public class Vacation {
     public Vacation() {
 
     }
-    @OneToMany
-    @JoinColumn(name = "vacation_id")
-    private Set<Excursion> excursions = new HashSet<>();
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "vacation_id")
-    private Set<CartItem> cartItems = new HashSet<>();
+    Set<Excursion> excursions;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "vacation_id")
+    Set<CartItem> cartItems = new HashSet<>();
 //    public void add(Excursion excursion) {
 //
 //        if (excursion != null) {

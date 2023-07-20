@@ -9,6 +9,7 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -31,19 +32,19 @@ public class Division {
     private Date create_date;
 
     @UpdateTimestamp
-    @Column(name = "lastUpdate")
+    @Column(name = "last_update")
     private Date last_update;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "country_id", nullable = false, insertable=false, updatable=false)
     private Country country;
 
-//    @Column(name = "country_id")
-//    private Long countryId;
+    @Column(name = "country_id")
+    private Long country_id;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "division_id")
-    private Set<Customer> customers;
+    private Set<Customer> customers = new HashSet<>();
 
     public Division() {
 

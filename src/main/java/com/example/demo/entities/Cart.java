@@ -51,17 +51,17 @@ public class Cart {
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "cart_id")
-    private Set<CartItem> cartItems = new HashSet<>();
+    private Set<CartItem> cartitems = new HashSet<>();
 
-    public void add(CartItem cartItem) {
+    public void add(CartItem item) {
 
-        if (cartItem != null) {
-            if (cartItem == null) {
-                cartItems = new HashSet<>();
+        if (item != null) {
+            if (item == null) {
+                cartitems = new HashSet<>();
             }
 
-            cartItems.add(cartItem);
-            cartItem.setCart(this);
+            cartitems.add(item);
+            item.setCart(this);
         }
     }
 

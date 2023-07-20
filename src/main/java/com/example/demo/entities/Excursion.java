@@ -43,8 +43,8 @@ public class Excursion {
     @JoinColumn(name = "vacation_id", nullable = false)
     private Vacation vacation;
 
-    @ManyToMany(cascade = {CascadeType.ALL}, mappedBy = "excursions")
-    private Set<CartItem> cartItems;
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "excursions")
+    Set<CartItem> cartItems;
 
     public Excursion() {
 

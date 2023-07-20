@@ -22,14 +22,14 @@ public class CartItem {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "vacation_id")
+    @JoinColumn(name = "vacation_id", nullable = false)
     private Vacation vacation;
 
     @ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(
             name = "excursion_cartitem",
-            joinColumns = @JoinColumn(name = "excursion_id"),
-            inverseJoinColumns = @JoinColumn(name = "cart_item_id")
+            joinColumns = @JoinColumn(name = "cart_item_id"),
+            inverseJoinColumns = @JoinColumn(name = "excursion_id")
     )
     private Set<Excursion> excursions;
 

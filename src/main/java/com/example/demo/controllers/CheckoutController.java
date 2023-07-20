@@ -1,9 +1,8 @@
 package com.example.demo.controllers;
 
 import com.example.demo.services.CheckoutService;
-import com.example.demo.services.PurchaseData;
-import com.example.demo.services.PurchaseResponseData;
-import org.springframework.http.ResponseEntity;
+import com.example.demo.services.Purchase;
+import com.example.demo.services.PurchaseResponse;
 import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin
@@ -19,9 +18,9 @@ public class CheckoutController {
 
     @PostMapping("/purchase")
 
-    public PurchaseResponseData placeOrder(@RequestBody PurchaseData purchaseData) {
-        PurchaseResponseData purchaseResponseData = checkoutService.checkout(purchaseData);
-        return purchaseResponseData;
+    public PurchaseResponse placeOrder(@RequestBody Purchase purchase) {
+        PurchaseResponse purchaseResponse = checkoutService.checkout(purchase);
+        return purchaseResponse;
     }
 }
 

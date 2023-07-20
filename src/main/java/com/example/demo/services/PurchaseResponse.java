@@ -3,7 +3,7 @@ package com.example.demo.services;
 import lombok.*;
 
 @Data
-public class PurchaseResponseData {
+public class PurchaseResponse {
 
     private final String orderTrackingNumber;
 

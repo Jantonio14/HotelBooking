@@ -4,7 +4,6 @@ import com.example.demo.dao.CartRepository;
 import com.example.demo.dao.CustomerRepository;
 import com.example.demo.entities.Cart;
 import com.example.demo.entities.CartItem;
-import com.example.demo.entities.Customer;
 import com.example.demo.entities.StatusType;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
@@ -28,17 +27,18 @@ public class CheckoutServiceImpl implements CheckoutService{
 
     @Override
     @Transactional
-    public PurchaseResponseData checkout(PurchaseData purchaseData) {
+    public PurchaseResponse checkout(Purchase purchase) {
 
-        if (!purchaseData.isValid()) {
-            throw new IllegalArgumentException("Invalid purchase data");
-        }
-        Cart cart = purchaseData.getCart();
+//        if (!purchase.isValid()) {
+//            throw new IllegalArgumentException("Invalid purchase data");
+//        }
+        Cart cart = purchase.getCart();
+        cart.setStatus(StatusType.ordered);
         String orderTrackingNumber = generateOrderTrackingNumber();
 
         cart.setOrderTrackingNumber(orderTrackingNumber);
-        cart.setStatus(StatusType.ordered);
-        Set<CartItem> cartItems = purchaseData.getCartItems();
+
+        Set<CartItem> cartItems = purchase.getCartItems();
         cartItems.forEach(cartItem -> cart.add(cartItem));
 
         cartRepository.save(cart);
@@ -49,7 +49,7 @@ public class CheckoutServiceImpl implements CheckoutService{
         //customerRepository.save(customer);
         // save cartRepository
 
-        return new PurchaseResponseData(orderTrackingNumber);
+        return new PurchaseResponse(orderTrackingNumber);
     }
 
 

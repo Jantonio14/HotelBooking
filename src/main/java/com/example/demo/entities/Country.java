@@ -27,7 +27,7 @@ public class Country {
     private String country_name;
 
     @CreationTimestamp
-    @Column(name = "create_dance")
+    @Column(name = "create_date")
     private Date create_date;
 
     @UpdateTimestamp
