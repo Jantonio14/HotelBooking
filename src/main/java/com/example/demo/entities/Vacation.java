@@ -47,6 +47,7 @@ public class Vacation {
     public Vacation() {
 
     }
+
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "vacation_id")
     Set<Excursion> excursions;

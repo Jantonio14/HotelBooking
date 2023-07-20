@@ -2,16 +2,16 @@ package com.example.demo.services;
 
 import com.example.demo.dao.CustomerRepository;
 import com.example.demo.entities.Customer;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
 @Component
-@Data
+//@Data
+@Getter
+@Setter
 public class CustomerDataInitializer implements CommandLineRunner {
 
     private CustomerRepository customerRepository;
